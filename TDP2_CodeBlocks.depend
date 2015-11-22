@@ -1,0 +1,20 @@
+# depslib dependency file v1.0
+1448198106 source:c:\users\emmanuel\documents\github\tdp2_codeblocks\driver.cpp
+	"assignment.h"
+
+1448200033 c:\users\emmanuel\documents\github\tdp2_codeblocks\assignment.h
+	<stdio.h>
+	<stdlib.h>
+	<iostream>
+	<string>
+	<vector>
+	<map>
+	<set>
+	<string>
+
+1448198116 source:c:\users\emmanuel\documents\github\tdp2_codeblocks\request.cpp
+	"assignment.h"
+
+1448198093 source:c:\users\emmanuel\documents\github\tdp2_codeblocks\semester.cpp
+	"assignment.h"
+
