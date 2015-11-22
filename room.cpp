@@ -34,10 +34,11 @@ vector<int> Room::freeHours(){
     vector<int> fullhours = {0,1,2,3,4,5,6,7,8,9};
     vector<int> reservedHours = this->reservedHours();
     for(auto pos = fullhours.begin(); pos != fullhours.end(); pos++){
-       for(auto hour = reservedHours.begin(); hour != reservedHours.end(); hour++){
-           if(*pos == *hour)
+       for(auto hour = reservedHours.cbegin(); hour != reservedHours.cend(); hour++){
+           if(*pos == *hour){
                fullhours.erase(pos); // erasing the booked hours of the planning
-
+               break;
+           }
        }
     }
     //can crash if the iterator is invalide after delete

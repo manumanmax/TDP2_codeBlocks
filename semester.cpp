@@ -3,15 +3,23 @@
 void Semester::AddRoom(string name){
     rooms.push_back(Room(name));
 }
-vector<int> Semester::AssignRoom(Request &request){
+vector<int> Semester::AssignRoom(Request request){
     vector<int> unbooked;
     vector<int> hours = request.hours();
     vector<int> res;
+    bool teacherOnTheBlock = 0;
     // TODO: add free hours size = hours
     //check if a room has all the hours
     for(auto room = rooms.begin(); room != rooms.end(); room++){
         if(room->freeHours().size() >= hours.size()){
-            return room->book(hours,request.name);
+            for(auto h : hours){ // checking if the block is available
+                if(room->check(h) != ""){
+                    teacherOnTheBlock = 1; // if there is a teacher on the block we don't book
+                }
+            }
+            if(!teacherOnTheBlock)
+                return room->book(hours,request.name);
+            teacherOnTheBlock = 0;
         }
     }
     if(rooms.size() > 0){
@@ -31,9 +39,12 @@ std::ostream & operator <<( std::ostream &os, Semester &semester ){
 set<string> Semester::CheckAvailability(Block b){
     vector<int> hours = b.hours();
     set<string> teachers;
+    string teacherName = "";
     for(auto room : rooms){
         for(auto h: hours){
-            teachers.insert(room.check(h));
+            teacherName = room.check(h);
+            if(teacherName != "")
+                teachers.insert(teacherName);
         }
     }
 
@@ -56,6 +67,10 @@ set<string> Semester::CheckAvailability(Block b){
    */
 }
 
+
+unsigned int Semester::NumberRooms(){
+    return this->rooms.size();
+}
 
 const string Semester::printRooms(){
     string s;

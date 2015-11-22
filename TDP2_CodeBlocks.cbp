@@ -32,7 +32,11 @@
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
 		</Compiler>
-		<Unit filename="main.cpp" />
+		<Unit filename="assignment.h" />
+		<Unit filename="driver.cpp" />
+		<Unit filename="request.cpp" />
+		<Unit filename="room.cpp" />
+		<Unit filename="semester.cpp" />
 		<Extensions>
 			<code_completion />
 			<envvars />

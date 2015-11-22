@@ -61,9 +61,10 @@ class Semester{
 public:
     Semester(){}
     void AddRoom(string name);
-    vector<int> AssignRoom(Request &request);
+    vector<int> AssignRoom(Request request);
     set<string> CheckAvailability(Block b);
     const string printRooms();
+    unsigned int NumberRooms();
 private:
     vector<Room> rooms;
     friend std::ostream & operator <<( std::ostream &os, Semester &semester );

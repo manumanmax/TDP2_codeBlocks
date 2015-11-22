@@ -4,7 +4,7 @@
 
 
 
-int main(int argc, char *argv[])
+int main()
 {
     //QCoreApplication a(argc, argv);
 
@@ -28,8 +28,12 @@ int main(int argc, char *argv[])
     //Prof. CCC would like block 1-2
     auto res1=A->CheckAvailability(Block(1,2));
     for (auto conflict: res1) cout << conflict << endl;
- /*   if (res1.size()!=A->NumberRooms())
+
+    printf("size of res1 : %d \n", res1.size());
+    if (res1.size()!=A->NumberRooms()){
+        cout << "assigning new rooms" << endl;
         A->AssignRoom(Request({{1,2}},"CCC"));
+    }
     cout << *A << endl;
 
     //Prof. DDD would like block 1-2
@@ -37,8 +41,6 @@ int main(int argc, char *argv[])
     for (auto conflict: res2) cout << conflict << endl;
     if (res2.size()!=A->NumberRooms())
         A->AssignRoom(Request({{1,2}},"DDD"));
-*/
-
 
     return 0;
 }
